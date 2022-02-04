@@ -20,6 +20,7 @@ import { AuthModule } from './auth/auth.module';
         entities: [join(__dirname, './**/*.entity.{ts,js}')],
         migrations: [join(__dirname, '../../migrations/*.{ts,js}')],
         migrationsRun: JSON.parse(configService.get('RUN_MIGRATIONS')),
+        logging: true,
       }),
     }),
     AuthModule,

@@ -11,16 +11,16 @@ export class AuthController {
     private readonly authService: AuthService,
   ) {}
   @Post('signup')
-  async create(@Body() dto: AuthDto): Promise<void> {
-    await this.userService.register(dto);
+  async signup(@Body() dto: AuthDto): Promise<void> {
+    return this.authService.signup(dto);
   }
 
   @UseGuards(AuthGuard('local'))
   @Post('signin')
-  async login(
+  async signin(
     @Body() dto: AuthDto,
     @Req() req,
-  ): Promise<{ access_token: string }> {
-    return this.authService.login(dto.email);
+  ): Promise<{ accessToken: string }> {
+    return this.authService.signin(req.user);
   }
 }
