@@ -8,6 +8,8 @@ import { JwtService } from '@nestjs/jwt';
 import { User } from '../user/user.entity';
 import { UserService } from '../user/user.service';
 import { AuthDto } from 'src/types/dtos/auth';
+import { SignupDto } from '../../types/dtos/signup';
+import { CreateProfileDto } from 'src/types/dtos/create-profile';
 
 @Injectable()
 export class AuthService {
@@ -55,7 +57,7 @@ export class AuthService {
     return this.signJWT({ email, id: user.id });
   }
 
-  async signup(dto: AuthDto): Promise<{ accessToken: string }> {
+  async signup(dto: SignupDto): Promise<{ accessToken: string }> {
     if (await this.usersService.findByEmail(dto.email)) {
       throw new ConflictException('The email address is already in use');
     }
@@ -64,14 +66,9 @@ export class AuthService {
 
     const hash: string = await bcrypt.hash(dto.password, salt);
 
-    const dtoWithHashedPassword = new AuthDto({
-      ...dto,
-      password: hash,
-    });
+    const { email, username } = dto;
 
-    const { email } = dto;
-
-    const user = await this.usersService.create(dtoWithHashedPassword);
+    const user = await this.usersService.create(email, username, hash);
 
     return this.signJWT({ email, id: user.id });
   }

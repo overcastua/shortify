@@ -26,10 +26,9 @@ export class LinkService {
     });
   }
 
-  async redirect(shortUrl: string, userId: number): Promise<string> {
+  async redirect(shortUrl: string): Promise<string> {
     const origin = await this.linkRepository.findOne({
       tokenizedUrl: shortUrl,
-      userId,
     });
 
     if (!origin)

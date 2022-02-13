@@ -227,6 +227,37 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "get own profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "About",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/about",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"about"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
