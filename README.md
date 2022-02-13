@@ -3,7 +3,7 @@
 
 Task can be found [here](https://docs.google.com/presentation/d/1b9wo04HCWk_oL3dCuiV7YYZ_aaDBpG0pv3AMYq_9Dsw/edit#slide=id.gbc28739f99_0_164).
 
-Report can be found [here](https://docs.google.com/document/d/1zTSW_qMtLtZx4yD-8x0D3lgyjtifooMf958CJr4LoMo/edit?usp=sharing).
+Report can be found [here](https://drive.google.com/file/d/1e11yH1_Xr2Aig7tHb85gCUIihlDuXzfA/view?usp=sharing).
 
 # Shortify - URL shortening service
 
@@ -23,9 +23,6 @@ $ yarn start
 
 # watch mode
 $ yarn start:dev
-
-# production mode
-$ yarn start:prod
 ```
 
 
