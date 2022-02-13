@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Link } from '../link/link.entity';
 
 @Entity('user', { schema: 'auth' })
 export class User {
@@ -11,10 +12,6 @@ export class User {
   @Column()
   password: string;
 
-  constructor(dto: any) {
-    if (dto) {
-      this.email = dto.email;
-      this.password = dto.password;
-    }
-  }
+  @OneToMany(() => Link, (lnk) => lnk.user)
+  links: Link[];
 }

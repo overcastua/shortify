@@ -11,7 +11,7 @@ export class UserTable1635163035302 implements MigrationInterface {
           email character varying NOT NULL, 
           password character varying NOT NULL, 
           CONSTRAINT UQ_user_email UNIQUE (email), 
-          CONSTRAINT PK_profile PRIMARY KEY (id)
+          CONSTRAINT PK_user PRIMARY KEY (id)
         )
       `,
     );
